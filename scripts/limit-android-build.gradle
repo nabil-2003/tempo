@@ -1,0 +1,17 @@
+// Local build-only resource limits; no application behavior changes.
+allprojects {
+  afterEvaluate { p ->
+    def react = p.extensions.findByName('react')
+    if (react != null) {
+      react.extraPackagerArgs.addAll(['--max-workers', '1'])
+    }
+    def android = p.extensions.findByName('android')
+    if (android != null && android.hasProperty('defaultConfig')) {
+      android.defaultConfig.externalNativeBuild.cmake.arguments.addAll([
+        '-DCMAKE_JOB_POOLS=tempo_compile=1;tempo_link=1',
+        '-DCMAKE_JOB_POOL_COMPILE=tempo_compile',
+        '-DCMAKE_JOB_POOL_LINK=tempo_link'
+      ])
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "expo": {
+    "name": "Tempo",
+    "slug": "tempo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/tempo-icon.png",
+    "scheme": "tempo",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "nothing",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.nabil.tempo",
+      "adaptiveIcon": {
+        "backgroundColor": "#7C3AED",
+        "foregroundImage": "./assets/images/tempo-adaptive-foreground.png",
+        "monochromeImage": "./assets/images/tempo-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.INTERNET"
+      ],
+      "blockedPermissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/images/tempo-icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/tempo-splash.png",
+          "imageWidth": 240,
+          "resizeMode": "contain",
+          "backgroundColor": "#090B18",
+          "dark": {
+            "image": "./assets/images/tempo-splash.png",
+            "backgroundColor": "#090B18"
+          }
+        }
+      ],
+      "expo-secure-store",
+      [
+        "expo-audio",
+        {
+          "enableBackgroundPlayback": true,
+          "enableBackgroundRecording": false,
+          "recordAudioAndroid": false,
+          "microphonePermission": false
+        }
+      ],
+      "expo-asset",
+      "expo-status-bar",
+      "expo-web-browser",
+      "./plugins/withTempoEngine"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "124a1ef4-2d45-4cb0-8c41-3273b2a93691"
+      }
+    }
+  }
+}

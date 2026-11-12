@@ -1,0 +1,6 @@
+fastapi>=0.115.6,<1
+uvicorn[standard]>=0.34,<1
+yt-dlp>=2026.10.26
+
+# Same EJS scripts bundled in the Android extractor
+yt-dlp-ejs==0.8.0
